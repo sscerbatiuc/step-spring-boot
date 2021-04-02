@@ -1,20 +1,26 @@
-package edu.step.manager.model;
+package edu.step.employeemanager.model;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class Company { // Data Transfer Object
+public class Company {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(unique = true)
     private String name;
-
     @OneToMany
     private Set<Employee> employees;
+
+    public Company() {
+    }
+
+    public Company(Integer id, String name, Set<Employee> employees) {
+        this.id = id;
+        this.name = name;
+        this.employees = employees;
+    }
 
     public Integer getId() {
         return id;

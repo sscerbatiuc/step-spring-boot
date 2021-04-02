@@ -1,4 +1,4 @@
-package edu.step.manager.model;
+package edu.step.employeemanager.model;
 
 import javax.persistence.*;
 
@@ -10,12 +10,13 @@ public class Employee {
     private Integer id;
     private String firstName;
     private String lastName;
-
     @Column(unique = true)
     private String idnp;
+    private Double salary;
 
     @ManyToOne
     private Company company;
+
 
     public Integer getId() {
         return id;
@@ -55,5 +56,13 @@ public class Employee {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public Double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Double salary) {
+        this.salary = salary;
     }
 }
